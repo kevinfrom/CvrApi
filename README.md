@@ -4,11 +4,20 @@
 
 You can install this plugin into your CakePHP application using [composer](https://getcomposer.org).
 
-The recommended way to install composer packages is:
-
-```
+Install through composer:
+````
 composer require kevinfrom/CvrApi
-```
+````
+
+Install node modules with npm:
+````
+npm install
+````
+
+Install node modules with yarn:
+````
+yarn install
+````
 
 Load the plugin in src/Application.php:
 ```
