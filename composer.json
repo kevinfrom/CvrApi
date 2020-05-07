@@ -11,5 +11,5 @@
             "CvrApi\\": "src/"
         }
     },
-    "prefer-stable": true
+    "minimum-stability": "stable"
 }
