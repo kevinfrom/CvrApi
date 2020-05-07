@@ -90,3 +90,8 @@ Search by phone:
 ````
 $result = $cvrApi->searchByPhone(97320108);
 ````
+
+## Todo
+- ~~Php class~~
+- ~~Js class~~
+- Create Cakephp view helper
