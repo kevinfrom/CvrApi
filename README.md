@@ -11,7 +11,7 @@ composer require kevinfrom/CvrApi
 ```
 
 
-## Examples
+## PHP Examples
 ### Initializing the api
 ````
 use \CvrApi\Library\CvrApi;
