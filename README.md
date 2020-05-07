@@ -10,6 +10,10 @@ The recommended way to install composer packages is:
 composer require kevinfrom/CvrApi
 ```
 
+Load the plugin in src/Application.php:
+```
+$this->addPlugin('CvrApi');
+```
 
 ## PHP Examples
 ### Initializing the api
