@@ -6,7 +6,7 @@ You can install this plugin into your CakePHP application using [composer](https
 
 Install through composer:
 ````
-composer require kevinfrom/CvrApi
+composer require kevinfrom/cvr-api
 ````
 
 Install node modules with npm:
