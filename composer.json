@@ -1,5 +1,5 @@
 {
-    "name": "kevinfrom/CvrApi",
+    "name": "kevinfrom/cvr-api",
     "description": "CvrApi plugin for CakePHP",
     "type": "cakephp-plugin",
     "license": "MIT",
