@@ -1,66 +1,20 @@
 <?php
-namespace CvrApi\Library;
-
-use Cake\Http\Client;
+namespace CvrApi;
 
 class CvrApi
 {
     /**
      * @var string $baseUrl
      * @var string $country
-     * @var null|Client
      */
-    private static $baseUrl = 'https://cvrapi.dk/api';
+    private static $baseUrl = 'cvrapi.dk/api';
     private static $country = 'dk';
-    private static $client;
+    private static $ssl;
 
     public function __construct($country = 'dk', $ssl = true)
     {
-        self::setCountry($country);
-
-        self::setClient(new Client([
-            'scheme' => $ssl ? 'https' : 'http',
-        ]));
-    }
-
-    /**
-     * Gets country
-     *
-     * @return string
-     */
-    public function getCountry()
-    {
-        return self::$country;
-    }
-
-    /**
-     * Sets country
-     *
-     * @param $country
-     */
-    public function setCountry($country)
-    {
         self::$country = $country;
-    }
-
-    /**
-     * Returns Client
-     *
-     * @return null|Client
-     */
-    public function getClient()
-    {
-        return self::$client;
-    }
-
-    /**
-     * Sets Client
-     *
-     * @param Client $client
-     */
-    public function setClient(Client $client)
-    {
-        self::$client = $client;
+        self::$ssl     = $ssl ? 'https://' : 'http://';
     }
 
     /**
@@ -73,10 +27,29 @@ class CvrApi
      */
     private function getUrl($query, $type = 'search')
     {
-        return self::getClient()->buildUrl(self::$baseUrl, [
-            'country' => self::$country,
-            $type     => $query,
-        ]);
+        return self::$ssl . self::$baseUrl . '?' . $type . '=' . urlencode($query) . '&country=' . self::$country;
+    }
+
+    /**
+     * Gets result from the query and returns as JSON
+     *
+     * @param $url
+     *
+     * @return false|string
+     */
+    private function getResult($url)
+    {
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'https://github.com/kevinfrom/cvr-api');
+
+        $result = curl_exec($ch);
+
+        curl_close($ch);
+
+        return json_encode($result);
     }
 
     /**
@@ -84,13 +57,13 @@ class CvrApi
      *
      * @param string $query
      *
-     * @return array|null
+     * @return false|string
      */
     public function search($query)
     {
         $url = self::getUrl($query);
 
-        return self::getClient()->get($url)->getJson();
+        return self::getResult($url);
     }
 
     /**
@@ -104,7 +77,7 @@ class CvrApi
     {
         $url = self::getUrl($name, 'name');
 
-        return self::getClient()->get($url)->getJson();
+        return self::getResult($url);
     }
 
     /**
@@ -118,7 +91,7 @@ class CvrApi
     {
         $url = self::getUrl($vat, 'vat');
 
-        return self::getClient()->get($url)->getJson();
+        return self::getResult($url);
     }
 
     /**
@@ -144,7 +117,7 @@ class CvrApi
     {
         $url = self::getUrl($productionUnit, 'produ');
 
-        return self::getClient()->get($url)->getJson();
+        return self::getResult($url);
     }
 
     /**
@@ -158,6 +131,6 @@ class CvrApi
     {
         $url = self::getUrl($phone, 'phone');
 
-        return self::getClient()->get($url)->getJson();
+        return self::getResult($url);
     }
 }

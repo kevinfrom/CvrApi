@@ -3,6 +3,3 @@
 /vendor
 config/Migrations/schema-dump-default.lock
 tests/*
-package-lock.json
-node_modules/*
-

@@ -2,32 +2,16 @@
 
 ## Installation
 
-You can install this plugin into your CakePHP application using [composer](https://getcomposer.org).
 
 Install through composer:
 ````
 composer require kevinfrom/CvrApi
 ````
 
-Install node modules with npm:
-````
-npm install
-````
-
-Install node modules with yarn:
-````
-yarn install
-````
-
-Load the plugin in src/Application.php:
-```
-$this->addPlugin('CvrApi');
-```
-
 ## PHP Examples
 ### Initializing the api
 ````
-use \CvrApi\Library\CvrApi;
+use \CvrApi\CvrApi;
 
 $cvrApi = new CvrApi();
 ````

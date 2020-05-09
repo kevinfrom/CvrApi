@@ -1,11 +1,8 @@
 {
     "name": "your-name-here/CvrApi",
     "description": "CvrApi plugin for CakePHP",
-    "type": "cakephp-plugin",
+    "type": "library",
     "license": "MIT",
-    "require": {
-        "cakephp/cakephp": "^3.5"
-    },
     "require-dev": {
         "phpunit/phpunit": "^5.7.14|^6.0"
     },
