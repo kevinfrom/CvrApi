@@ -5,7 +5,7 @@
 
 Install through composer:
 ````
-composer require kevinfrom/CvrApi
+composer require kevinfrom/cvr-api
 ````
 
 ## PHP Examples

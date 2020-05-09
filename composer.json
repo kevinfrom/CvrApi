@@ -1,5 +1,5 @@
 {
-    "name": "your-name-here/CvrApi",
+    "name": "kevinfrom/cvr-api",
     "description": "CvrApi plugin for CakePHP",
     "type": "library",
     "license": "MIT",
@@ -11,10 +11,5 @@
             "CvrApi\\": "src/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "CvrApi\\Test\\": "tests/",
-            "Cake\\Test\\": "vendor/cakephp/cakephp/tests/"
-        }
-    }
+    "minimum-stability": "stable"
 }
