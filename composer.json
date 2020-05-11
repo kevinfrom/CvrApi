@@ -8,7 +8,7 @@
     },
     "autoload": {
         "psr-4": {
-            "CvrApi\\": "src/"
+            "kevinfrom\\CvrApi\\": "src/"
         }
     },
     "minimum-stability": "stable"
