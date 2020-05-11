@@ -11,7 +11,7 @@ composer require kevinfrom/cvr-api
 ## PHP Examples
 ### Initializing the api
 ````
-use \CvrApi\CvrApi;
+use \kevinfrom\CvrApi\CvrApi;
 
 $cvrApi = new CvrApi();
 ````
