@@ -1,5 +1,5 @@
 <?php
-namespace CvrApi;
+namespace kevinfrom\CvrApi;
 
 class CvrApi
 {
